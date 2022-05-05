@@ -1,5 +1,5 @@
 const mysql = require('mysql2/promise');
-const { dbConfig } = require('../dbConfig');
+const dbConfig  = require('../dbConfig');
 
 const tableName = 'products';
 
