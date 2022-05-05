@@ -36,7 +36,21 @@ async function InsertIntoNewProduct(NewProductData) {
   }
 }
 
+async function DeleteProduct(id) {
+  try {
+    const conn = await mysql.createConnection(dbConfig);
+    const sql = `DELETE FROM ${tableName} WHERE id = ? LIMIT 1`;
+    const [singleDeleteData] = await conn.execute(sql, [id]);
+    await conn.close();
+    return singleDeleteData
+  } catch (error) {
+    console.log('SingleDeteData', error);
+    return false;
+  }
+}
+
 module.exports = {
   GetProducts,
-  InsertIntoNewProduct
+  InsertIntoNewProduct,
+  DeleteProduct
 };
