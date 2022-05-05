@@ -30,8 +30,16 @@ async function DeleteProcutResult(req, res) {
   res.json('Delete success');
 }
 
+async function CountResult(req, res) {
+    const products = await ProductModel.CountProducts();
+    return products === false
+      ? failResponce(res)
+      : successResponce(res, products);
+  }
+
 module.exports = {
   ProductIndex,
   InsertProducts,
-  DeleteProcutResult
+  DeleteProcutResult,
+  CountResult
 };
