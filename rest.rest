@@ -1,2 +1,18 @@
 
 GET http://localhost:3000/Products
+
+###
+
+POST http://localhost:3000/Products/post
+Content-Type: application/json
+
+    {
+      "image_url": "https://medikana.lt/images/ananas-ir-irdies-sveikata-2.jpg",
+      "title": "Anasasas",
+      "description": "Labai skanus",
+      "price": "3.00"
+    }
+###
+DELETE http://localhost:3000/Products/delete/11
+###
+GET http://localhost:3000/Products/count

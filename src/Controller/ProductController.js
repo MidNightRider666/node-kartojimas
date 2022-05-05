@@ -10,10 +10,12 @@ async function ProductIndex(req, res) {
 
 async function InsertProducts(req, res) {
   const NewProductData = req.body;
-  const ProductAddingResult = await InsertIntoNewProduct(NewProductData);
+  const ProductAddingResult = await ProductModel.InsertIntoNewProduct(
+    NewProductData,
+  );
   return ProductAddingResult === false
     ? failResponce(res)
-    : successResponce(res, products);
+    : successResponce(res, ProductAddingResult);
 }
 
 async function DeleteProcutResult(req, res) {
@@ -31,15 +33,15 @@ async function DeleteProcutResult(req, res) {
 }
 
 async function CountResult(req, res) {
-    const products = await ProductModel.CountProducts();
-    return products === false
-      ? failResponce(res)
-      : successResponce(res, products);
-  }
+  const products = await ProductModel.CountProducts();
+  return products === false
+    ? failResponce(res)
+    : successResponce(res, products);
+}
 
 module.exports = {
   ProductIndex,
   InsertProducts,
   DeleteProcutResult,
-  CountResult
+  CountResult,
 };

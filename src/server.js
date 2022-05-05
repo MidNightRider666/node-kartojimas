@@ -1,7 +1,7 @@
 const express = require('express');
 const morgan = require('morgan');
 const cors = require('cors');
-const ProductRoutes = require('./routes/ProductRoutes')
+const ProductRoutes = require('./routes/ProductRoutes');
 
 // const mysql = require('mysql2/promise');
 // const dbConfig = require('./dbConfig');
